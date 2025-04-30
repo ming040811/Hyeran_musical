@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>Company Page</title>
+  <style>
+    body {
+      width: 1000px;
+      margin: 0 auto;
+      font-family: sans-serif;
+      background-color: white;
+      color: black;
+    }
+
+    header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 120px;
+      height: 40px;
+      font-size: 10pt;
+      border-top: 1px solid black;
+      border-bottom: 1px solid black;
+      margin: 20px auto 30px auto;
+    }
+
+    .company-title {
+      font-size: 45px;
+      font-weight: 400;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 20px 0;
+    }
+
+    .company-title .line {
+      width: 40px;
+      height: 1px;
+      background-color: #000;
+    }
+
+    .header-img-wrapper {
+      width: 100%;
+      height: 312px;
+      overflow: hidden;
+      position: relative;
+      margin: 0 auto 40px auto;
+    }
+
+    .header-img-slider {
+      display: flex;
+      width: 300%;
+      height: 100%;
+      animation: slide 15s infinite;
+    }
+
+    .header-img-slider div {
+      width: 100%;
+      height: 100%;
+      flex-shrink: 0;
+      background-size: contain;
+      background-position: center;
+    }
+
+    .header-img1 { background-color: #ccc; background-image: url('./img/company_1.png'); }
+    .header-img2 { background-color: #aaa; background-image: url('./img/company_2.png'); }
+    .header-img3 { background-color: #888; background-image: url('./img/company_3.png'); }
+
+    @keyframes slide {
+      0% { transform: translateX(0); }
+      33.333% { transform: translateX(0); }
+
+      33.334% { transform: translateX(-100%); }
+      66.666% { transform: translateX(-100%); }
+
+      66.667% { transform: translateX(-200%); }
+      100% { transform: translateX(-200%); }
+    }
+
+    .content-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 60px;
+    }
+
+    .img-box, .text-box {
+      width: 398px;
+      height: 253px;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .img-box {
+      background-color: #ccc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .text-box {
+      background-color: white;
+      font-size: 14px;
+      color: #333;
+      line-height: 1.6;
+      margin-top: -40px;
+    }
+
+    .text-box p {
+      margin: 0;
+    }
+
+    .content-row h1 {
+      font-size: 26pt;
+      font-weight: 450;
+    }
+    /* 더보기 버튼 스타일 */
+    .more-btn {
+      width: 139px;
+      height: 43px;
+      font-size: 14pt;
+      margin-top: 15px;
+      background-color: white;
+      border: 1px solid #000;
+      cursor: pointer;
+      display: inline-block;
+      text-align: center;
+      line-height: 43px;
+      color: #000;
+      text-decoration: none;
+    }
+
+    .more-btn:hover {
+      background-color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="./index.html" style="color: black; text-decoration: none;"><div>HOME</div></a>
+    <a href="./company.html" style="color: black; text-decoration: none;"><div>COMPANY</div></a>
+    <div>PLACE</div>
+    <div>MUSICAL</div>
+  </header>
+
+  <h1 class="company-title">
+    <span class="line"></span> COMPANY
+  </h1>
+
+  <div class="header-img-wrapper">
+    <div class="header-img-slider">
+      <div class="header-img1"></div>
+      <div class="header-img2"></div>
+      <div class="header-img3"></div>
+    </div>
+  </div>
+
+  <div class="content-row">
+    <div class="img-box" style="background-image: url('./img/company_OD.png'); background-size: cover; background-position: center;"></div>
+    <div class="text-box">
+      <h1 style="font-size: 21pt;">OD컴퍼니</h1>
+      <p>오디컴퍼니㈜는 2001년 설립된 대한민국 대표 뮤지컬 제작사로, 공연예술 콘텐츠를 기획·제작해왔습니다.
+        체계적인 제작 노하우와 기획력을 바탕으로 다양한 작품을 선보이며 국내외에서 입지를 다졌습니다.
+        앞으로도 양질의 콘텐츠 개발과 공연예술 시장의 발전을 위해 지속적으로 노력할 것입니다.</p>
+        <a href="https://www.odmusical.com/" class="more-btn" target="_blank">자세히 보기</a>
+    </div>
+  </div>
+
+  <div class="content-row">
+    <div class="text-box">
+      <h1 style="font-size: 21pt;">EMK</h1>
+      <p>대한민국 문화예술을
+        이끌어갈 기업 EMK
+        업계의 리더라는 자부심과 책임감을 가지고 독보적인 콘텐츠를 지속적으로 개발하여 국내 최고의 기업을 넘어 한국뮤지컬의 세계화에 앞장서고 있습니다.
+        EMK는 문화 예술이 존재하는 이유와 가치를 더욱 공고히 하여 위로와 행복, 즐거움과 경험을 나누고 공연 산업 성장에 기여하며 업계를 이끌어 나갈 것입니다.
+        </p>
+        <a href="https://emkmusical.com/" class="more-btn" target="_blank">자세히 보기</a>
+    </div>
+    <div class="img-box" style="background-image: url('./img/company_emk.png'); background-size: cover; background-position: center;"></div>
+  </div>
+
+  <div class="content-row">
+    <div class="img-box" style="background-image: url('./img/company_show.png'); background-size: cover; background-position: center;"></div>
+    <div class="text-box">
+      <h1 style="font-size: 21pt;">SHOW NOTE</h1>
+      <p>
+        ㈜쇼노트는 2005년 설립 이후 뮤지컬, 연극, 콘서트, 어린이 공연 등 다양한 라이브 엔터테인먼트 콘텐츠를 제작해온 공연 전문 기업입니다. ‘헤드윅’, ‘신흥무관학교’, ‘알앤제이’ 등 대표작과 함께 K-POP 콘서트, 토크콘서트, 해외 투어까지 활발히 전개하며, 예술성과 대중성을 겸비한 콘텐츠로 국내외 시장을 선도하고 있습니다.
+      </p>
+      <a href="https://www.shownote.com/Main/Index" class="more-btn" target="_blank">자세히 보기</a>
+    </div>
+  </div>
+
+</body>
+</html>
