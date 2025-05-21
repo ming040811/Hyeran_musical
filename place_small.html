@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>Company Page</title>
+  <style>
+        @font-face {
+      font-family: 'BillieEilish';
+      src: url('./fonts/Billie Eilish.otf') format('opentype');
+    }
+
+    body {
+      width: 1000px;
+      margin: 0 auto;
+      font-family: sans-serif;
+      background-color: white;
+      color: black;
+    }
+
+    header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 120px;
+      height: 40px;
+      font-size: 10pt;
+      border-top: 1px solid black;
+      border-bottom: 1px solid black;
+      margin: 20px auto 30px auto;
+      width: 1000px;
+      position: relative; 
+    }
+
+    .underline {
+      position: absolute;
+      bottom: 1px;
+      height: 2px;
+      background-color: black;
+      width: 44px;
+      left: calc(559.5px); /* HOME 글자 아래 위치 */
+    }
+
+    .nav-item {
+      position: relative;
+      text-decoration: none;
+      color: black;
+    }
+
+    .company-title {
+      font-size: 45px;
+      font-weight: bold;
+      font-family: 'BillieEilish', sans-serif;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 20px 0;
+      letter-spacing: 4px;
+    }
+
+    .company-title .line {
+      width: 40px;
+      height: 1px;
+      background-color: #000;
+    }
+
+    .place-tab-menu {
+      display: flex;
+      justify-content: center;
+      gap: 105px;
+      font-size: 10pt;
+      border-top: 1px solid black;
+      border-bottom: 1px solid black;
+      padding: 10px 0;
+      margin-bottom: 30px;
+    }
+
+    .place-tab-menu .tab {
+      position: relative;
+      cursor: pointer;
+    }
+
+    .place-tab-menu .selected::after {
+      content: "";
+      position: absolute;
+      bottom: -9.5px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: black;
+    }
+
+    .content-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 60px;
+      margin-top: 10px;
+    }
+
+    .img-box, .text-box {
+      width: 398px;
+      height: 253px;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .img-box {
+      background-color: #ccc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .text-box {
+      background-color: white;
+      font-size: 14px;
+      color: #333;
+      line-height: 1.6;
+      margin-top: -20px;
+    }
+
+    .text-box p {
+      margin: 0;
+    }
+
+    .content-row h1 {
+      font-size: 26pt;
+      font-weight: 450;
+    }
+
+    .more-btn {
+      width: 130px;
+      height: 39px;
+      font-size: 12pt;
+      margin-top: 15px;
+      background-color: white;
+      border: 1px solid #000;
+      cursor: pointer;
+      display: inline-block;
+      text-align: center;
+      line-height: 39px;
+      color: #000;
+      text-decoration: none;
+    }
+
+    .more-btn:hover {
+      background-color: black;
+      color: white;
+    }
+
+    hr.section-divider {
+      width: 1000px;
+      margin: 0 auto;
+      border: none;
+      border-top: 1px solid #BCBCBC;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="./index.html" style="color: black; text-decoration: none;"><div>HOME</div></a>
+    <a href="./company.html" style="color: black; text-decoration: none;"><div>COMPANY</div></a>
+    <a href="./place_grand.html" style="color: black; text-decoration: none;"><div>PLACE</div></a>
+    <a href="./musical_grand.html" style="color: black; text-decoration: none;"><div>MUSICAL</div></a>
+    <div class="underline"></div>
+  </header>
+
+  <h1 class="company-title">
+    <span class="line"></span> PLACE
+  </h1>
+
+  <div class="place-tab-menu">
+    <a href="./place_grand.html" style="color: black; text-decoration: none;"><div class="tab">GRAND</div></a>
+    <a href="./place_medium.html" style="color: black; text-decoration: none;"><div class="tab">MEDIUM</div></a>
+    <a href="./place_small.html" style="color: black; text-decoration: none;"><div class="tab selected">SMALL</div></a>
+  </div>
+
+<!-- OD -->
+<div class="content-row company-od">
+  <div class="text-box" style="margin-left: 60px;">
+    <h1 style="font-size: 21pt;">대학로TOM</h1>
+    <p>
+      <a href="https://naver.me/GbDFdkSg" style="color: #4A7F99; text-decoration: none;"><img src="./img/location.png" alt="위치 아이콘" style="width: 15px; height: 15px; margin-bottom: -3px;">
+      	서울특별시 종로구 대학로8가길 85</a>
+    </p>
+    <p>최적의 관람환경을 제공하는 TOM THEATER과 중·소극장 작품연습에 적합한 연습실 및 연극 및 뮤지컬 등의 다양한 장르를 소화할 수 있는 무대실기 중심의 교육과 전문적 환경을 제공하는 TOM ACADEMY를 운영하고 있습니다.</p>
+    <a href="http://www.towntom.com/" class="more-btn" target="_blank">공식 홈페이지</a>
+  </div>
+  <div class="img-box" style="background-image: url('./img/TOM.png');"></div>
+</div>
+
+<hr class="section-divider" />
+
+<!-- EMK -->
+<div class="content-row company-emk">
+  <div class="img-box" style="background-image: url('./img/uni.png');margin-top:80px;"></div>
+  <div class="text-box" style="margin-right: 60px; margin-top: 44px;">
+    <h1 style="font-size: 21pt;">NOL 유니플렉스</h1>
+    <p>
+      <a href="https://naver.me/FqWtD3IZ" style="color: #4A7F99; text-decoration: none;"><img src="./img/location.png" alt="위치 아이콘" style="width: 15px; height: 15px;margin-bottom: -3px;">
+        서울특별시 종로구 대학로12길 64</a>
+    </p>
+    <p> 동숭동 복합공연장 NOL 유니플렉스(구 인터파크유니플렉스)는 2013년, 젊음과 문화 예술이 공존하는 대학로에서 다양한 문화 예술의 진흥과 대중의 문화향수 촉진을 위해 개관하였습니다.</p>
+    <a href="http://www.uniplex.co.kr/" class="more-btn" target="_blank">공식 홈페이지</a>
+  </div>
+</div>
+
+<hr class="section-divider" style="position: relative; top: 20px;" />
+
+<!-- SHOW NOTE -->
+<div class="content-row company-show">
+  <div class="text-box" style="margin-left: 60px; margin-top:48px;">
+    <h1 style="font-size: 21pt; display: flex; gap: 10px; align-items: flex-end;">
+        <span>국립극장</span>
+        <span style="font-size: 13pt; position: relative; top: -5px;">별오름극장</span>
+      </h1>
+    <p>
+      <a href="https://naver.me/GkRAyR0d" style="color: #4A7F99; text-decoration: none;"><img src="./img/location.png" alt="위치 아이콘" style="width: 15px; height: 15px;margin-bottom: -3px;">
+        서울특별시 중구 장충단로 59</a>
+    </p>
+    <p>국립극장은 창설 70년이 지난 지금도 예술가와 관객이 함께 새로운 역사를 만들어가고 있으며, 2012년부터는 '국립극장 레퍼토리시즌'을 도입해 전속단체와 기획 공연을 통해 공연의 양과 질 향상을 위해 노력하고 있습니다.
+        </p>
+    <a href="https://www.ntok.go.kr/ntok/main.do" class="more-btn" target="_blank">공식 홈페이지</a>
+  </div>
+  <div class="img-box" style="background-image: url('./img/국립.png');margin-top:80px;"></div>
+</div>
+</body>
+</html>
