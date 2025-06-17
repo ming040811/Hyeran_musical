@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>Musical Page</title>
+  <style>
+    @font-face {
+      font-family: 'Billie Eilish';
+      src: url('./fonts/Billie Eilish.otf') format('truetype');
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      overflow-x: hidden;
+      font-family: sans-serif;
+    }
+    .background {
+      position: relative;
+      min-height: 100vh;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transition: background-image 1s ease;
+    }
+    .audio-title {
+      font-size: 8pt;
+      color: white;
+      margin-top: 600px;
+      margin-bottom: 5px;
+      user-select: none;
+      z-index: 1;
+      position: relative;
+    }
+    .audio-player {
+      position: relative;
+      z-index: 1;
+      width: 1000px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      user-select: none;
+      color: white;
+    }
+    .play-pause-btn {
+      width: 40px;
+      height: 40px;
+      border: none;
+      background: transparent;
+      color: white;
+      cursor: pointer;
+      font-size: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      user-select: none;
+      flex-shrink: 0;
+    }
+    .time {
+      font-size: 14px;
+      min-width: 90px;
+      user-select: none;
+      white-space: nowrap;
+      flex-shrink: 0;
+      text-align: left;
+    }
+    .progress-container {
+      flex-grow: 1;
+      height: 5px;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 3px;
+      cursor: pointer;
+      position: relative;
+    }
+    .progress {
+      height: 100%;
+      width: 0%;
+      background: white;
+      border-radius: 3px;
+      transition: width 0.1s linear;
+    }
+    .header-line {
+      width: 1000px;
+      height: 1px;
+      background-color: white;
+      margin-bottom: 1px;
+      position: relative;
+      right: calc(3px);
+      z-index: 1;
+    }
+    header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 120px;
+      height: 39.5px;
+      font-size: 10pt;
+      border-top: 1px solid white;
+      border-bottom: 1px solid white;
+      background-color: transparent;
+      color: white;
+      width: 1000px;
+      margin-top: 20px;
+      position: relative;
+      z-index: 1;
+      bottom: calc(1.8px);
+    }
+    .underline {
+      position: absolute;
+      bottom: 1px;
+      height: 2px;
+      background-color: white;
+      width: 40px;
+      left: calc(50% - 280px);
+      z-index: 1;
+    }
+    .nav-item {
+      position: relative;
+      text-decoration: none;
+      color: white;
+      cursor: pointer;
+      user-select: none;
+    }
+    .dropdown {
+      position: relative;
+      display: inline-block;
+      z-index: 10;
+    }
+    .dropdown > a {
+      color: white;
+      text-decoration: none;
+      cursor: pointer;
+      font-weight: 400;
+      line-height: 40px;
+      display: inline-block;
+      user-select: none;
+    }
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      width: 990px;
+      height: 40px;
+      background-color: white;
+      color: white;
+      padding-left: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      line-height: 35px;
+      text-align: center;
+      white-space: nowrap;
+      border-radius: 0;
+      user-select: none;
+      z-index: 100;
+    }
+    .dropdown-menu a {
+      color: rgb(50, 50, 50);
+      text-decoration: none;
+      font-size: 10pt;
+      margin: 0 60px;
+      font-weight: 400;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .dropdown:hover > .dropdown-menu,
+    .dropdown-menu:hover {
+      display: block;
+    }
+    .dropdown-menu.place-menu {
+      left: -561.5px;
+    }
+    .dropdown-menu.musical-menu {
+      left: -721.5px;
+    }
+    .content-wrapper {
+      width: 1000px;
+      background-color: white;
+      height: 562px;
+      padding: 20px;
+      box-sizing: border-box;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .musical-section {
+      padding-top: 50px;
+    }
+    .musical-title {
+      font-family: 'Billie Eilish', sans-serif;
+      font-size: 45pt;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      letter-spacing: 4px;
+    }
+    .musical-title::after {
+      content: "";
+      width: 510px;
+      height: 0.8px;
+      background-color: #000;
+    }
+    .musical-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-top: 30px;
+    }
+    .musical-text {
+      flex: none;
+      text-align: left;
+    }
+    .musical-text h2 {
+      font-size: 28pt;
+      margin-bottom: 10px;
+    }
+    .musical-text p {
+      font-size: 14pt;
+      margin: 5px 0;
+    }
+    .more-btn {
+      width: 130px;
+      height: 39px;
+      font-size: 12pt;
+      margin-top: 15px;
+      background-color: white;
+      border: 1px solid #000;
+      cursor: pointer;
+    }
+    .more-btn:hover {
+      background-color: black;
+      color: white;
+    }
+    .musical-img {
+      width: 420px;
+      height: 270px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-left: auto;
+      position: relative;
+      z-index: 1;
+    }
+    .musical-img input[type="radio"] {
+      display: none;
+    }
+    .slider-wrapper {
+      width: 370px;
+      height: 228px;
+      overflow: hidden;
+      position: relative;
+      margin-bottom: 10px;
+      z-index: 1;
+    }
+    .slider {
+      display: flex;
+      transition: transform 0.5s ease;
+      gap: 10px;
+    }
+    .slider img {
+      width: 370px;
+      height: 228px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    #slide1:checked ~ .slider-wrapper .slider {
+      transform: translateX(0);
+    }
+    #slide2:checked ~ .slider-wrapper .slider {
+      transform: translateX(calc(-380px));
+    }
+    #slide3:checked ~ .slider-wrapper .slider {
+      transform: translateX(calc(-760px));
+    }
+    .slider-nav {
+      justify-content: center;
+      align-items: center;
+      font-size: 14pt;
+      position: relative;
+      z-index: 1;
+    }
+    .slider-nav > div {
+      display: none;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+    #slide1:checked ~ .slider-nav #nav1,
+    #slide2:checked ~ .slider-nav #nav2,
+    #slide3:checked ~ .slider-nav #nav3 {
+      display: flex;
+    }
+    .arrow {
+      cursor: pointer;
+      font-size: 16pt;
+      user-select: none;
+      color: black;
+      font-weight: 300;
+    }
+    .arrow.disabled {
+      pointer-events: none;
+      opacity: 0.3;
+      cursor: default;
+    }
+    .slide-number {
+      text-align: center;
+      font-weight: bold;
+    }
+    .page-number::before {
+      content: "01 / 03";
+    }
+    #slide1:checked ~ .slider-nav .page-number::before {
+      content: "01 / 03";
+    }
+    #slide2:checked ~ .slider-nav .page-number::before {
+      content: "02 / 03";
+    }
+    #slide3:checked ~ .slider-nav .page-number::before {
+      content: "03 / 03";
+    }
+    .slash-total {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="background" id="background">
+    <div class="header-line"></div>
+    <header>
+      <a href="./index.html" class="nav-item">HOME</a>
+      <a href="./company.html" class="nav-item">COMPANY</a>
+      <div class="dropdown nav-item">
+        <a href="./place_grand.html">PLACE</a>
+        <div class="dropdown-menu place-menu">
+          <a href="./place_grand.html">GRAND</a>
+          <a href="./place_medium.html">MEDIUM</a>
+          <a href="./place_small.html">SMALL</a>
+        </div>
+      </div>
+      <div class="dropdown nav-item">
+        <a href="./musical_grand.html">MUSICAL</a>
+        <div class="dropdown-menu musical-menu">
+          <a href="./musical_grand.html">GRAND</a>
+          <a href="./musical_medium.html">MEDIUM</a>
+          <a href="./musical_small.html">SMALL</a>
+        </div>
+      </div>
+      <div class="underline"></div>
+    </header>
+
+    <div class="audio-title" id="audioTitle"></div>
+    <div class="audio-player">
+      <button class="play-pause-btn" id="playPauseBtn" aria-label="재생/일시정지">▶</button>
+      <div class="time" id="time">00:00 / 00:00</div>
+      <div class="progress-container" id="progressContainer">
+        <div class="progress" id="progress"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-wrapper">
+    <div class="musical-section">
+      <div class="musical-title">Today's musical</div>
+
+      <div class="musical-info">
+        <div class="musical-text">
+          <h2>하데스타운</h2>
+          <br />
+          <p>송스루 뮤지컬</p>
+          <p>155분(인터미션 20분 포함)</p>
+          <button class="more-btn" onclick="location.href='./musical_hades.html'">더보기</button>
+        </div>
+
+        <div class="musical-img">
+          <input type="radio" name="slider" id="slide1" checked />
+          <input type="radio" name="slider" id="slide2" />
+          <input type="radio" name="slider" id="slide3" />
+
+          <div class="slider-wrapper">
+            <div class="slider">
+              <img src="./img/home_bottom.png" alt="slide1" />
+              <img src="./img/home_bottom_2.png" alt="slide2" />
+              <img src="./img/home_bottom_3.png" alt="slide3" />
+            </div>
+          </div>
+
+          <div class="slider-nav">
+            <div id="nav1">
+              <span class="arrow disabled">&#8592;</span>
+              <span class="slide-number"><span class="page-number"></span></span>
+              <label class="arrow" for="slide2">&#8594;</label>
+            </div>
+            <div id="nav2">
+              <label class="arrow" for="slide1">&#8592;</label>
+              <span class="slide-number"><span class="page-number"></span></span>
+              <label class="arrow" for="slide3">&#8594;</label>
+            </div>
+            <div id="nav3">
+              <label class="arrow" for="slide2">&#8592;</label>
+              <span class="slide-number"><span class="page-number"></span></span>
+              <span class="arrow disabled">&#8594;</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+window.addEventListener('DOMContentLoaded', () => {
+  const bgElement = document.getElementById('background');
+  const bgImages = ['./img/home_1.png', './img/home_2.png', './img/home_3.png'];
+  let bgIndex = 0;
+
+  function changeBackground() {
+    const imageUrl = bgImages[bgIndex];
+    bgElement.style.backgroundImage = `url('${imageUrl}')`;
+    bgIndex = (bgIndex + 1) % bgImages.length;
+  }
+  changeBackground();
+  setInterval(changeBackground, 4000);
+
+  const playPauseBtn = document.getElementById('playPauseBtn');
+  const progressContainer = document.getElementById('progressContainer');
+  const progress = document.getElementById('progress');
+  const time = document.getElementById('time');
+  const audioTitle = document.getElementById('audioTitle');
+
+  const songs = [
+    { src: './mp3/world.mp3', title: '모두의 세상 - 박강현' },
+    { src: './mp3/RaiseYouUp.mp3', title: 'Raise You Up - 이석훈,최재림 외 7인' },
+    { src: './mp3/WhoisDorian.mp3', title: 'Who is Dorian - 박은태' },
+    { src: './mp3/LOVINGYOUKEEPSMEALIVE.mp3', title: 'Loving you keeps me alive - 전동석,린지' },
+    { src: './mp3/단하미.mp3', title: '단 하나의 미래 - 전동석,박은태' }
+  ];
+
+  function getRandomSong(excludeTitle = '') {
+    const candidates = songs.filter(song => song.title !== excludeTitle);
+    return candidates[Math.floor(Math.random() * candidates.length)];
+  }
+
+  function formatTime(seconds) {
+    const min = Math.floor(seconds / 60);
+    const sec = Math.floor(seconds % 60);
+    return `${min < 10 ? '0' + min : min}:${sec < 10 ? '0' + sec : sec}`;
+  }
+
+  let currentSong = getRandomSong();
+  let audio = null;
+
+  function createAndPlayAudio(song) {
+    if (audio) {
+      audio.pause();
+      audio.removeEventListener('timeupdate', onTimeUpdate);
+      audio.removeEventListener('ended', onEnded);
+    }
+
+    audio = new Audio(song.src);
+    audioTitle.textContent = song.title;
+
+    audio.addEventListener('timeupdate', onTimeUpdate);
+    audio.addEventListener('ended', onEnded);
+    audio.play();
+  }
+
+  function onTimeUpdate() {
+    if (!audio.duration) return;
+    const currentTime = audio.currentTime;
+    const duration = audio.duration;
+    const percent = (currentTime / duration) * 100;
+    progress.style.width = `${percent}%`;
+    time.textContent = `${formatTime(currentTime)} / ${formatTime(duration)}`;
+  }
+
+  function onEnded() {
+    currentSong = getRandomSong(currentSong.title);
+    createAndPlayAudio(currentSong);
+    playPauseBtn.textContent = '⏸';
+  }
+
+  playPauseBtn.addEventListener('click', () => {
+    if (!audio) {
+      createAndPlayAudio(currentSong);
+      playPauseBtn.textContent = '⏸';
+      return;
+    }
+
+    if (audio.paused) {
+      audio.play();
+      playPauseBtn.textContent = '⏸';
+    } else {
+      audio.pause();
+      playPauseBtn.textContent = '⯈';
+    }
+  });
+
+  progressContainer.addEventListener('click', (e) => {
+    if (!audio) return;
+    const rect = progressContainer.getBoundingClientRect();
+    const clickX = e.clientX - rect.left;
+    const width = rect.width;
+    const duration = audio.duration || 0;
+    audio.currentTime = (clickX / width) * duration;
+  });
+});
+</script>
+<script>
+  const slides = ['slide1', 'slide2', 'slide3'];
+  let currentSlide = 0;
+
+  const sliderWrapper = document.querySelector('.slider-wrapper');
+
+  sliderWrapper.addEventListener('click', (e) => {
+    const rect = sliderWrapper.getBoundingClientRect();
+    const clickX = e.clientX - rect.left;
+    const isRight = clickX > rect.width / 2;
+
+    if (isRight) {
+      // 오른쪽 클릭: 3번이면 멈춤
+      if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        document.getElementById(slides[currentSlide]).checked = true;
+      }
+    } else {
+      // 왼쪽 클릭: 1번이면 멈춤
+      if (currentSlide > 0) {
+        currentSlide--;
+        document.getElementById(slides[currentSlide]).checked = true;
+      }
+    }
+  });
+
+  // 라디오 버튼 수동 선택 시 currentSlide 값 갱신
+  slides.forEach((id, index) => {
+    document.getElementById(id).addEventListener('change', () => {
+      currentSlide = index;
+    });
+  });
+</script>
+</body>
+</html>

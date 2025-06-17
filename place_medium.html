@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>PLACE Page</title>
+  <style>
+    @font-face {
+      font-family: 'BillieEilish';
+      src: url('./fonts/Billie Eilish.otf') format('opentype');
+    }
+
+    body {
+      width: 1000px;
+      margin: 0 auto;
+      font-family: sans-serif;
+      background-color: white;
+      color: black;
+    }
+
+    header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 120px;
+      height: 40px;
+      font-size: 10pt;
+      border-top: 1px solid black;
+      border-bottom: 1px solid black;
+      margin: 20px auto 30px auto;
+      position: relative;
+    }
+
+    .underline {
+      position: absolute;
+      bottom: 1px;
+      height: 2px;
+      background-color: black;
+      width: 44px;
+      left: calc(559.5px); /* HOME 글자 아래 위치 */
+    }
+
+    .nav-item {
+      position: relative;
+      text-decoration: none;
+      color: black;
+      cursor: pointer;
+    }
+
+    /* === COMPANY 코드 드롭다운 메뉴 CSS (교체된 부분) === */
+
+    .company-title {
+      font-size: 45px;
+      font-weight: bold;
+      font-family: 'BillieEilish', sans-serif;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 20px 0;
+      letter-spacing: 4px;
+    }
+
+    .company-title .line {
+      width: 40px;
+      height: 1px;
+      background-color: #000;
+    }
+
+    .place-tab-menu {
+      display: flex;
+      justify-content: center;
+      gap: 105px;
+      font-size: 10pt;
+      border-top: 1px solid black;
+      border-bottom: 1px solid black;
+      padding: 10px 0;
+      margin-bottom: 30px;
+    }
+
+    .place-tab-menu .tab {
+      position: relative;
+      cursor: pointer;
+    }
+
+    .place-tab-menu .selected::after {
+      content: "";
+      position: absolute;
+      bottom: -9.5px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: black;
+    }
+
+    .content-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 60px;
+      margin-top: 10px;
+    }
+
+    .img-box, .text-box {
+      width: 398px;
+      height: 253px;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .img-box {
+      background-color: #ccc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .text-box {
+      background-color: white;
+      font-size: 14px;
+      color: #333;
+      line-height: 1.6;
+      margin-top: -20px;
+    }
+
+    .text-box p {
+      margin: 0;
+    }
+
+    .content-row h1 {
+      font-size: 26pt;
+      font-weight: 450;
+    }
+
+    .more-btn {
+      width: 130px;
+      height: 39px;
+      font-size: 12pt;
+      margin-top: 15px;
+      background-color: white;
+      border: 1px solid #000;
+      cursor: pointer;
+      display: inline-block;
+      text-align: center;
+      line-height: 39px;
+      color: #000;
+      text-decoration: none;
+    }
+
+    .more-btn:hover {
+      background-color: black;
+      color: white;
+    }
+
+    hr.section-divider {
+      width: 1000px;
+      margin: 0 auto;
+      border: none;
+      border-top: 1px solid #BCBCBC;
+    }
+
+    .text-box[data-anim="animate-rtl"],
+    .text-box[data-anim="animate-ltr"] {
+      opacity: 0;
+      transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+    }
+
+    .text-box[data-anim="animate-rtl"] {
+      transform: translateX(40px);
+    }
+
+    .text-box[data-anim="animate-ltr"] {
+      transform: translateX(-40px);
+    }
+
+    .text-box.animated {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="./index.html" class="nav-item">HOME</a>
+    <a href="./company.html" class="nav-item">COMPANY</a>
+      <a href="./place_grand.html" class="nav-item">PLACE</a>
+      <a href="./musical_grand.html" class="nav-item">MUSICAL</a>
+      </div>
+    </div>
+    <div class="underline"></div>
+  </header>
+
+  <h1 class="company-title">
+    <span class="line"></span> PLACE
+  </h1>
+
+  <div class="place-tab-menu">
+    <a href="./place_grand.html" style="color: black; text-decoration: none;"><div class="tab">GRAND</div></a>
+    <a href="./place_medium.html" style="color: black; text-decoration: none;"><div class="tab selected">MEDIUM</div></a>
+    <a href="./place_small.html" style="color: black; text-decoration: none;"><div class="tab">SMALL</div></a>
+  </div>
+
+  <div class="content-row company-od">
+    <div class="img-box" style="background-image: url('./img/chungmu.png');"></div>
+    <div class="text-box" style="margin-right: 60px;">
+      <h1 style="font-size: 21pt; display: flex; gap: 10px; align-items: flex-end;">
+        <span>충무아트센터</span>
+        <span style="font-size: 13pt; position: relative; top: -5px;">중극장블랙</span>
+      </h1>
+      <p>
+        <a href="https://naver.me/x8tpHeCf" style="color: #4A7F99; text-decoration: none;"><img src="./img/location.png" alt="위치 아이콘" style="width: 15px; height: 15px;margin-bottom: -3px;">
+        서울특별시 중구 퇴계로 387</a>
+      </p>
+      <p>충무아트센터는 중구민문화복지 증진 등을 위해 서울 중구청이 설립, 운영하고 있는
+        서울의 대표 공공문화예술회관으로서 서울 자치구 최초의 지역문화재단인 중구문화재단에서 운영하고 있습니다.
+      </p>
+      <a href="https://www.caci.or.kr/home/ko/main" class="more-btn" target="_blank">공식 홈페이지</a>
+    </div>
+  </div>
+
+  <hr class="section-divider" />
+
+  <div class="content-row company-emk">
+    <div class="text-box" style="margin-left: 60px; margin-top: 35px;">
+      <h1 style="font-size: 21pt;">두산아트센터</h1>
+      <p>
+        <a href="https://naver.me/GFBhlAjX" style="color: #4A7F99; text-decoration: none;"><img src="./img/location.png" alt="위치 아이콘" style="width: 15px; height: 15px;margin-bottom: -3px;">
+        서울특별시 종로구 종로33길 15</a>
+      </p>
+      <p>두산연강재단 두산아트센터는 두산 창립 111주년을 기념하여 2007년 새롭게 문을 열었습니다.
+        연강홀, Space111, 두산갤러리에서 다양한 공연과 전시를 선보이며 뮤지컬, 연극 음악, 무용, 미술 등 각자의 장르에서 활발하게 활동하는 젊은 예술가들을 발굴,
+        육성하고 있습니다.</p>
+      <a href="https://www.doosanartcenter.com/ko" class="more-btn" target="_blank">공식 홈페이지</a>
+    </div>
+    <div class="img-box" style="background-image: url('./img/doosan.png');margin-top:80px;"></div>
+  </div>
+
+  <hr class="section-divider" style="position: relative; top: 10px;" />
+
+  <div class="content-row company-show">
+    <div class="img-box" style="background-image: url('./img/link.png');margin-top:80px;"></div>
+    <div class="text-box" style="margin-right: 60px; margin-top: 23px;">
+      <h1 style="font-size: 21pt;">링크아트센터</h1>
+      <p>
+        <a href="https://naver.me/x2jQCvuM" style="color: #4A7F99; text-decoration: none;"><img src="./img/location.png" alt="위치 아이콘" style="width: 15px; height: 15px;margin-bottom: -3px;">
+        서울시 종로구 대학로14길 29</a>
+      </p>
+      <h1 style="font-size: 10pt; margin-bottom: 4px;  margin-top: 2px;">
+        ⚹링크아트센터, 링크아트센터드림, 디큐브 링크센터는 서로 다른 공연장임을 안내드립니다.
+      </h1>
+      <p style="margin-top: 0;">
+        NHN링크의 플랫폼적 역량과 ㈜아떼오드의 콘텐츠적 역량이 결집된 공간인 NHN 링크아트센터는 제작자, 창작자에서 관객에 이르기까지 공연과 관련된 모두에게 최적의 환경과 서비스를 제공합니다.
+      </p>
+      <a href="http://www.linkartcenter.co.kr/" class="more-btn" target="_blank">공식 홈페이지</a>
+    </div>
+  </div>
+
+  <!-- ✅ 스크립트: 애니메이션 트리거 -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+          entry.target.classList.add('animated');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('.text-box').forEach(el => {
+      const parent = el.closest('.content-row');
+      if (parent && parent.classList.contains('company-emk')) {
+        el.setAttribute('data-anim', 'animate-ltr');
+      } else {
+        el.setAttribute('data-anim', 'animate-rtl');
+      }
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>

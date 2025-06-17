@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>Company Page</title>
+  <style>
+            @font-face {
+      font-family: 'BillieEilish';
+      src: url('./fonts/Billie Eilish.otf') format('opentype');
+    }
+
+    body {
+      width: 1000px;
+      margin: 0 auto;
+      font-family: sans-serif;
+      background-color: white;
+      color: black;
+    }
+
+    header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 120px;
+      height: 40px;
+      font-size: 10pt;
+      border-top: 1px solid black;
+      border-bottom: 1px solid black;
+      margin: 20px auto 30px auto;
+      width: 1000px;
+      position: relative; 
+    }
+
+    .underline {
+      position: absolute;
+      bottom: 1px;
+      height: 2px;
+      background-color: black;
+      width: 55px;
+      left: calc(722.5px);
+    }
+
+    .nav-item {
+      position: relative;
+      text-decoration: none;
+      color: black;
+    }
+
+    .company-title {
+      font-size: 45px;
+      font-weight: bold;
+      font-family: 'BillieEilish', sans-serif;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 20px 0;
+      letter-spacing: 4px;
+    }
+
+    .company-title .line {
+      width: 40px;
+      height: 1px;
+      background-color: #000;
+    }
+
+    .place-tab-menu {
+      display: flex;
+      justify-content: center;
+      gap: 105px;
+      font-size: 10pt;
+      border-top: 1px solid black;
+      border-bottom: 1px solid black;
+      padding: 10px 0;
+      margin-bottom: 50px;
+    }
+
+    .place-tab-menu .tab {
+      position: relative;
+      cursor: pointer;
+    }
+
+    .place-tab-menu .selected::after {
+      content: "";
+      position: absolute;
+      bottom: -9.5px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: black;
+    }
+
+    .content-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 60px;
+      margin-top: 30px;
+    }
+
+    .img-box {
+      width: 337px;
+      height: 476px;
+      background-color: #ccc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-size: cover;
+      background-position: center;
+      margin-right: 60px;
+    }
+
+    .text-box {
+      width: 500px;
+      font-size: 14px;
+      color: #333;
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-left: 80px;
+    }
+
+    .text-box p {
+      margin: 5px 0;
+    }
+
+    .text-box p:first-of-type {
+  margin-bottom: -5px; /* 기본보다 더 붙게 */
+  line-height: 0.9;    /* 줄 간격을 조금 줄임 */
+}
+
+    .text-box p:nth-of-type(2) {
+      margin-top: 15px; /* 날짜 살짝 아래로 */
+    }
+
+    .text-box h1 {
+      font-size: 20pt;
+      font-weight: 450;
+      margin: 5px 0;
+    }
+
+    .more-btn {
+      width: 130px;
+      height: 39px;
+      font-size: 12pt;
+      margin-top: 10px;
+      background-color: white;
+      border: 1px solid #000;
+      cursor: pointer;
+      display: inline-block;
+      text-align: center;
+      line-height: 39px;
+      color: #000;
+      text-decoration: none;
+    }
+
+    .more-btn:hover {
+      background-color: black;
+      color: white;
+    }
+
+    .text-box {
+  opacity: 0;
+  transform: translateX(-40px); /* 왼쪽으로 이동한 상태 */
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.text-box.visible {
+  opacity: 1;
+  transform: translateX(0); /* 원래 위치로 */
+}
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="./index.html" class="nav-item">HOME</a>
+    <a href="./company.html" class="nav-item">COMPANY</a>
+      <a href="./place_grand.html" class="nav-item">PLACE</a>
+      <a href="./musical_grand.html" class="nav-item">MUSICAL</a>
+      </div>
+    </div>
+
+    <div class="underline"></div>
+  </header>
+
+  <h1 class="company-title">
+    <span class="line"></span> MUSICAL
+  </h1>
+
+  <div class="place-tab-menu">
+    <a href="./musical_grand.html" style="color: black; text-decoration: none;"><div class="tab">GRAND</div></a>
+    <a href="./musical_medium.html" style="color: black; text-decoration: none;"><div class="tab">MEDIUM</div></a>
+    <a href="./musical_small.html" style="color: black; text-decoration: none;"><div class="tab selected">SMALL</div></a>
+  </div>
+
+  <!-- 콘텐츠 시작 -->
+  <div class="content-row">
+    <div class="text-box">
+      <p>창작</p>
+      <h1>여신님이 보고 계셔</h1>
+      <p>120분(인터미션 없음)</p>
+      <a href="./musical_god.html" class="more-btn">자세히보기</a>
+    </div>
+    <a href="./img/god.png" style="color: black; text-decoration: none;">
+      <div class="img-box" style="background-image: url('./img/god.png"></div>
+    </a>
+  </div>
+
+  <div class="content-row">
+    <div class="text-box">
+      <p>희곡원작</p>
+      <h1>타오르는 어둠 속에서</h1>
+      <p>150분(인터미션 15분 포함)</p>
+      <a href="./musical_dark.html" class="more-btn">자세히보기</a>
+    </div>
+    <a href="./img/dark.png" style="color: black; text-decoration: none;">
+      <div class="img-box" style="background-image: url('./img/dark.png');"></div>
+    </a>
+  </div>
+
+  <div class="content-row">
+    <div class="text-box">
+      <p>라이선스</p>
+      <h1>접변</h1>
+      <p>100분(인터미션 없음)</p>
+      <a href="./musical_ butterfly.html" class="more-btn">자세히보기</a>
+    </div>
+    <a href="./img/접변.png" style="color: black; text-decoration: none;">
+      <div class="img-box" style="background-image: url('./img/접변.png');"></div>
+    </a>
+  </div>
+
+  <div class="content-row">
+    <div class="text-box">
+      <p>소설원작</p>
+      <h1>종의 기원</h1>
+      <p>95분(인터미션 없음)</p>
+      <a href="./musical_origin.html" class="more-btn">자세히보기</a>
+    </div>
+    <a href="./img/기원.png" style="color: black; text-decoration: none;">
+      <div class="img-box" style="background-image: url('./img/기원.png');"></div>
+    </a>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const textBoxes = document.querySelectorAll(".text-box");
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        {
+          threshold: 0.1,
+        }
+      );
+
+      textBoxes.forEach((box) => observer.observe(box));
+    });
+  </script>
+  
+</body>
+</html>

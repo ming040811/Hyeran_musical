@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>PLACE Page</title>
+  <style>
+    @font-face {
+      font-family: 'BillieEilish';
+      src: url('./fonts/Billie Eilish.otf') format('opentype');
+    }
+
+    body {
+      width: 1000px;
+      margin: 0 auto;
+      font-family: sans-serif;
+      background-color: white;
+      color: black;
+    }
+
+    header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 120px;
+      height: 40px;
+      font-size: 10pt;
+      border-top: 1px solid black;
+      border-bottom: 1px solid black;
+      margin: 20px auto 30px auto;
+      position: relative;
+    }
+
+    .underline {
+      position: absolute;
+      bottom: 1px;
+      height: 2px;
+      background-color: black;
+      width: 44px;
+      left: calc(559.5px); /* HOME 글자 아래 위치 */
+    }
+
+    .nav-item {
+      position: relative;
+      text-decoration: none;
+      color: black;
+      cursor: pointer;
+    }
+
+
+    .company-title {
+      font-size: 45px;
+      font-weight: bold;
+      font-family: 'BillieEilish', sans-serif;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 20px 0;
+      letter-spacing: 4px;
+    }
+
+    .company-title .line {
+      width: 40px;
+      height: 1px;
+      background-color: #000;
+    }
+
+    .place-tab-menu {
+      display: flex;
+      justify-content: center;
+      gap: 105px;
+      font-size: 10pt;
+      border-top: 1px solid black;
+      border-bottom: 1px solid black;
+      padding: 10px 0;
+      margin-bottom: 30px;
+    }
+
+    .place-tab-menu .tab {
+      position: relative;
+      cursor: pointer;
+    }
+
+    .place-tab-menu .selected::after {
+      content: "";
+      position: absolute;
+      bottom: -9.5px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: black;
+    }
+
+    .content-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 60px;
+      margin-top: 10px;
+    }
+
+    .img-box, .text-box {
+      width: 398px;
+      height: 253px;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .img-box {
+      background-color: #ccc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 20px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .text-box {
+      background-color: white;
+      font-size: 14px;
+      color: #333;
+      line-height: 1.6;
+      margin-top: -20px;
+    }
+
+    .text-box p {
+      margin: 0;
+    }
+
+    .content-row h1 {
+      font-size: 26pt;
+      font-weight: 450;
+    }
+
+    .more-btn {
+      width: 130px;
+      height: 39px;
+      font-size: 12pt;
+      margin-top: 15px;
+      background-color: white;
+      border: 1px solid #000;
+      cursor: pointer;
+      display: inline-block;
+      text-align: center;
+      line-height: 39px;
+      color: #000;
+      text-decoration: none;
+    }
+
+    .more-btn:hover {
+      background-color: black;
+      color: white;
+    }
+
+    hr.section-divider {
+      width: 1000px;
+      margin: 0 auto;
+      border: none;
+      border-top: 1px solid #BCBCBC;
+    }
+
+    .text-box.animate-left,
+    .text-box.animate-right {
+      opacity: 0;
+      transform: translateX(0);
+      transition: transform 0.9s ease-out, opacity 0.9s ease-out;
+    }
+
+    .text-box.animate-left.visible {
+      opacity: 1;
+      transform: translateX(50px);
+    }
+
+    .text-box.animate-right.visible {
+      opacity: 1;
+      transform: translateX(-50px);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="./index.html" class="nav-item">HOME</a>
+    <a href="./company.html" class="nav-item">COMPANY</a>
+      <a href="./place_grand.html" class="nav-item">PLACE</a>
+      <a href="./musical_grand.html" class="nav-item">MUSICAL</a>
+      </div>
+    </div>
+
+    <div class="underline"></div>
+  </header>
+
+  <h1 class="company-title">
+    <span class="line"></span> PLACE
+  </h1>
+
+  <div class="place-tab-menu">
+    <a href="./place_grand.html" style="color: black; text-decoration: none;"><div class="tab selected">GRAND</div></a>
+    <a href="./place_medium.html" style="color: black; text-decoration: none;"><div class="tab">MEDIUM</div></a>
+    <a href="./place_small.html" style="color: black; text-decoration: none;"><div class="tab">SMALL</div></a>
+  </div>
+
+  <!-- === 본문 콘텐츠 (원본 그대로) === -->
+  <div class="content-row company-od">
+    <div class="text-box" style="margin-left: 0px;">
+      <h1 style="font-size: 21pt;">샤롯데씨어터</h1>
+      <p>
+        <a href="https://naver.me/xique5B3" style="text-decoration: none; color: #4A7F99;">
+          <img src="./img/location.png" alt="위치 아이콘" style="width: 15px; height: 15px; margin-bottom: -3px;">
+          서울특별시 송파구 올림픽로 240
+        </a>
+      </p>
+      <p>1,260석 규모의 대한민국 최초이자 최고의 뮤지컬 전용 극장 샤롯데씨어터는
+        롯데 그룹이 한국의 뮤지컬 업계 발전을 도모하기 위해 건설비 총 450억 원을
+        투자하여 지난 2004년 착공, 2006년 10월 28일 개관하였습니다.</p>
+      <a href="https://www.charlottetheater.co.kr/index.asp" class="more-btn" target="_blank">공식 홈페이지</a>
+    </div>
+    <div class="img-box" style="background-image: url('./img/lotte.png');"></div>
+  </div>
+
+  <hr class="section-divider" />
+
+  <div class="content-row company-emk">
+    <div class="img-box" style="background-image: url('./img/lg.png'); margin-top:80px;"></div>
+    <div class="text-box" style="margin-right: -1px; margin-top: 22px;">
+      <h1 style="font-size: 21pt;">LG아트센터 서울</h1>
+      <p>
+        <a href="https://naver.me/GRo4xAgP" style="text-decoration: none; color: #4A7F99;">
+          <img src="./img/location.png" alt="위치 아이콘" style="width: 15px; height: 15px; margin-bottom: -3px;">
+          서울특별시 강서구 마곡중앙로 136
+        </a>
+      </p>
+      <p>LG아트센터는 2022년 10월, 서울 강서구로 이전하여 ‘LG아트센터 서울’이라는 새 이름으로 개관하였습니다.
+        앞으로도 동시대 세계적인 수준의 작품을 선보임과 동시에
+        한국 창작자들과의 협업을 통해 한국 컨템포러리 문화를 선도하는 공연장,
+        공연과 연계된 다양한 문화 활동을 통해 새로운 가치와 경험을 제공하는 믿을 수 있는 공연장이 되고자 노력하겠습니다.</p>
+      <a href="https://www.lgart.com/home/ko/main" class="more-btn" target="_blank">공식 홈페이지</a>
+    </div>
+  </div>
+
+  <hr class="section-divider" style="position: relative; top: 20px;" />
+
+  <div class="content-row company-show">
+    <div class="text-box" style="margin-left: -1px; margin-top: 59px;">
+      <h1 style="font-size: 21pt;">예술의 전당</h1>
+      <p>
+        <a href="https://naver.me/FsRsfo44" style="text-decoration: none; color: #4A7F99;">
+          <img src="./img/location.png" alt="위치 아이콘" style="width: 15px; height: 15px; margin-bottom: -3px;">
+          서울특별시 서초구 남부순환로 2406
+        </a>
+      </p>
+      <p>예술이 숨쉬는 문화공간, 문화예술과 소통하는 환희의 공간 예술의전당
+        예술의전당은 세계적으로 자부심이 되는 예술종합문화공간을 제공하기 위해 끊임없이 노력합니다.</p>
+      <a href="https://www.sac.or.kr/site/main/home" class="more-btn" target="_blank">공식 홈페이지</a>
+    </div>
+    <div class="img-box" style="background-image: url('./img/artcenter.png'); margin-top:80px;"></div>
+  </div>
+
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('.company-od .text-box').forEach(el => {
+      el.classList.add('animate-left');
+      observer.observe(el);
+    });
+    document.querySelectorAll('.company-emk .text-box').forEach(el => {
+      el.classList.add('animate-right');
+      observer.observe(el);
+    });
+    document.querySelectorAll('.company-show .text-box').forEach(el => {
+      el.classList.add('animate-left');
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
